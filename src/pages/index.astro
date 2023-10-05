@@ -1,0 +1,67 @@
+---
+import setup from '$app/setup';
+const draft = setup(Astro.request);
+
+import Layout from '@/layouts/Base.astro';
+import Title from '$lib/astro/Title.astro';
+
+import app from '$app/configs/app';
+const title = app[draft]?.title || 'Error';
+---
+
+<Layout
+  title={app[draft]?.name || 'Error'}
+  description={app[draft]?.description || 'Error'}>
+  <main>
+    <Title>{title}</Title>
+
+    <figure set:html={app[draft]?.icon || app.default.icon} />
+
+    <time id='timer'></time>
+  </main>
+</Layout>
+
+<script>
+  import confetti from '$lib/utils/confetti';
+  confetti({});
+
+  import { timer, timerFormat } from '$app/stores/persistent';
+  const el = document.getElementById('timer');
+  timer.subscribe((val) => el && (el.innerHTML = timerFormat(val)));
+</script>
+
+<style>
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+
+  figure {
+    display: flex;
+    width: 100%;
+    max-width: 16rem;
+    aspect-ratio: 1;
+    justify-content: center;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  time {
+    font-size: small;
+  }
+
+  @media (min-width: 640px) {
+    svg {
+      max-width: 25vmin;
+    }
+  }
+
+  @media (min-width: 1088px) {
+    main {
+      padding: 0;
+    }
+    svg {
+      max-width: 20vmin;
+    }
+  }
+</style>

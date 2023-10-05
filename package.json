@@ -1,0 +1,59 @@
+{
+  "name": "@daks.dev/.draft",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "info": "astro info",
+    "start": "astro dev --port=3000",
+    "dev": "astro dev --local-development --port=3000",
+    "check": "astro check",
+    "build": "astro build",
+    "cluster": "node run/cluster.js",
+    "preview": "astro preview --port=3000",
+    "test:integration": "playwright test -c tests/",
+    "test:unit": "vitest --ui",
+    "test": "pnpm test:integration && pnpm test:unit",
+    "lint": "prettier --plugin=prettier-plugin-astro --check . && eslint .",
+    "format": "prettier --plugin=prettier-plugin-astro --write .",
+    "run:update": "pnpm up"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.2.0",
+    "@astrojs/node": "^6.0.3",
+    "@astrojs/ts-plugin": "^1.1.3",
+    "@nanostores/persistent": "^0.9.1",
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.2",
+    "@vitest/ui": "^0.34.6",
+    "astro": "^3.2.3",
+    "canvas-confetti": "^1.8.0",
+    "esm-env": "^1.0.0",
+    "nanostores": "^0.9.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11",
+    "vitest": "^0.34.6"
+  },
+  "engines": {
+    "node": ">=16.20.2",
+    "pnpm": "^8.8.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daks-dev/.draft"
+  },
+  "bugs": "https://github.com/daks-dev/.draft/issues",
+  "author": {
+    "name": "DVA",
+    "email": "mail@daks.dev",
+    "url": "https://daks.dev"
+  },
+  "homepage": "https://daks.dev",
+  "keywords": [
+    "astro",
+    "vite"
+  ]
+}

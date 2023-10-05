@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'h1'> & {
+  class?: ClassName;
+  itemprop?: string;
+  frame?: HTMLAttributes<'header'> & {
+    class?: ClassName;
+    itemscope?: true;
+    itemtype?: string;
+    itemprop?: string;
+  };
+};
+
+const {
+  class: className,
+  itemprop = 'headline',
+  frame: {
+    class: classNameFrame,
+    itemscope,
+    itemtype,
+    itemprop: itempropFrame = 'header',
+    ...propsFrame
+  } = {},
+  ...props
+} = Astro.props;
+---
+
+<header
+  class:list={classNameFrame}
+  {itemscope}
+  {itemtype}
+  itemprop={itempropFrame}
+  {...propsFrame}>
+  <slot name='before' />
+  <h1
+    class:list={className}
+    {itemprop}
+    {...props}>
+    <slot />
+  </h1>
+  <slot name='after' />
+</header>
