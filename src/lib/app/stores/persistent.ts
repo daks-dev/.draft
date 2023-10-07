@@ -1,20 +1,5 @@
 import { onMount } from 'nanostores';
-import { persistentAtom, persistentMap } from '@nanostores/persistent';
-
-export const settings = persistentMap<{
-  sidebar: boolean;
-  theme: 'dark' | 'light' | 'auto';
-}>(
-  'set::',
-  {
-    sidebar: false,
-    theme: 'auto'
-  },
-  {
-    encode: JSON.stringify,
-    decode: JSON.parse
-  }
-);
+import { persistentAtom } from '@nanostores/persistent';
 
 export const timer = persistentAtom<number>('timer', 0, {
   encode: (val) => val.toString(),

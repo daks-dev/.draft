@@ -32,3 +32,11 @@ main {
   margin: 0 auto;
   padding: 0 2rem;
 }
+
+a {
+  color: #0e7490;
+}
+
+a:hover {
+  color: #4338ca;
+}
