@@ -1,5 +1,5 @@
 // import type { MiddlewareResponseHandler } from 'astro';
-import { defineMiddleware } from 'astro:middleware';
+import { defineMiddleware } from 'astro/middleware';
 
 type Config = {
   path: string;
