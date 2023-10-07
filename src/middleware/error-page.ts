@@ -1,5 +1,5 @@
-// import type { MiddlewareResponseHandler } from 'astro';
-import { defineMiddleware } from 'astro/middleware';
+import type { MiddlewareResponseHandler } from 'astro';
+// import { defineMiddleware } from 'astro/middleware';
 
 type Config = {
   path: string;
@@ -17,7 +17,8 @@ export default (config: Partial<Config> = {}) => {
     ...config
   };
 
-  return defineMiddleware(async ({ redirect }, next) => {
+  //return defineMiddleware(async ({ redirect }, next) => {
+  return (async ({ redirect }, next) => {
     try {
       const response = await next();
 
@@ -33,5 +34,5 @@ export default (config: Partial<Config> = {}) => {
 
       return redirect(`${config.path}/500`);
     }
-  });
+  }) satisfies MiddlewareResponseHandler;
 };
