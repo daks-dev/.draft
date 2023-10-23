@@ -1,5 +1,5 @@
-import { sequence } from 'astro:middleware';
-import errorPages from './error-pages';
+// import { sequence } from 'astro:middleware';
+// import errorPages from './error-pages';
 import stores from './stores';
 
-export const onRequest = sequence(stores(), errorPages());
+export const onRequest = stores();
