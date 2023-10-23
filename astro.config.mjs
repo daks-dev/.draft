@@ -8,6 +8,10 @@ export default defineConfig({
 
   trailingSlash: 'never',
 
+  // outDir: './build',
+
+  // redirects: { '/old': '/new', '/old/[...slug]': '/new/[...slug]' }
+
   output: 'server',
   adapter: node({
     mode: 'standalone'
@@ -22,5 +26,7 @@ export default defineConfig({
         $app: fileURLToPath(new URL('./src/lib/app', import.meta.url))
       }
     }
+    // plugins: []
+    // define: { 'process.env': process.env }
   }
 });

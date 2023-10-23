@@ -1,6 +1,9 @@
 ---
-import setup from '$app/setup';
-const draft = setup(Astro.request);
+// import setup from '$app/setup';
+// const draft = setup(Astro.request);
+
+import { page } from '$app/stores';
+const { draft } = page.get();
 
 import Layout from '@/layouts/Base.astro';
 import Title from '$lib/astro/Title.astro';
@@ -47,6 +50,9 @@ const title = app[draft]?.title || 'Error';
   }
 
   time {
+    display: flex;
+    align-items: center;
+    height: 1rem;
     font-size: small;
   }
 

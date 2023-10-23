@@ -3,11 +3,11 @@ import type { APIRoute } from 'astro';
 import pkg from 'package.json';
 const { version } = pkg;
 
-import setup from '$app/setup';
+import { page } from '$app/stores';
 import app from '$app/configs/app';
 
-export const GET = (async ({ request }) => {
-  const draft = setup(request);
+export const GET = (() => {
+  const { draft } = page.get();
   return new Response(
     `
 <?xml version="1.0" encoding="UTF-8" ?>

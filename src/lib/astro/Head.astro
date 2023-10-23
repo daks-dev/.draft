@@ -2,8 +2,8 @@
 import pkg from 'package.json';
 const { version } = pkg;
 
-import { setup } from '$app/stores';
-const { draft } = setup.get();
+import { page } from '$app/stores';
+const { draft } = page.get();
 
 import app from '$app/configs/app';
 

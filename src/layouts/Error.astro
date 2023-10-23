@@ -2,8 +2,8 @@
 import pkg from 'package.json';
 const { version } = pkg;
 
-import setup from '$app/setup';
-const draft = setup(Astro.request);
+import { page } from '$app/stores';
+const { draft } = page.get();
 
 import '../styles/global.css';
 

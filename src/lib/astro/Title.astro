@@ -27,14 +27,14 @@ const {
 ---
 
 <header
-  class:list={classNameFrame}
+  class:list={[classNameFrame]}
   {itemscope}
   {itemtype}
   itemprop={itempropFrame}
   {...propsFrame}>
   <slot name='before' />
   <h1
-    class:list={className}
+    class:list={[className]}
     {itemprop}
     {...props}>
     <slot />

@@ -3,13 +3,13 @@ import type { APIRoute } from 'astro';
 import pkg from 'package.json';
 const { version } = pkg;
 
-import setup from '$app/setup';
+import { page } from '$app/stores';
 import app from '$app/configs/app';
 
-export const GET = (async ({ request }) => {
-  const draft = setup(request);
+export const GET = (() => {
+  const { url, draft } = page.get();
 
-  const canonical = new URL(process.env.APP_CANONICAL || request.url).origin;
+  const canonical = new URL(process.env.APP_CANONICAL || url).origin;
 
   return new Response(
     JSON.stringify({
