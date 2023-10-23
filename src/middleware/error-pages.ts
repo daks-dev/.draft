@@ -7,7 +7,7 @@ type Config = {
 };
 
 const defaultConfig: Config = {
-  path: '/error-pages',
+  path: '/error_pages',
   logger: true
 };
 
