@@ -1,10 +1,7 @@
 ---
 import Layout from '@/layouts/Error.astro';
 
-type Props = {
-  status: string;
-};
-const { status } = Astro.params;
+const status = '403';
 ---
 
 <Layout {status} />
